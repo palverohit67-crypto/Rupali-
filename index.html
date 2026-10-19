@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Romantic Surprise ❤️</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Floating Hearts Background Canvas -->
+  <canvas id="hearts-canvas"></canvas>
+  <div class="ambient-glow"></div>
+
+  <!-- Top Utilities: Music & Settings -->
+  <header class="top-controls">
+    <button class="icon-btn" id="btn-audio-toggle" title="Toggle romantic background music" aria-label="Toggle sound">
+      <svg id="sound-off-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+      <svg id="sound-on-icon" style="display:none;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+    </button>
+    <button class="icon-btn" id="btn-config-date" title="Configure relationship anniversary date" aria-label="Change anniversary date">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    </button>
+  </header>
+
+  <!-- Interactive Screens Experience -->
+  <main class="experience-container">
+
+    <!-- ==========================================
+         SCREEN 1: WELCOME & PROGRESS LOADING
+         ========================================== -->
+    <section class="screen active" id="screen-1" aria-label="Loading Screen">
+      <div class="loading-status-text" id="status-text">Initializing Love.exe...</div>
+      <div class="progress-bar-container">
+        <div class="progress-bar-fill" id="progress-fill"></div>
+      </div>
+      <div class="counter-text" id="counter-text">0%</div>
+    </section>
+
+    <!-- ==========================================
+         SCREEN 2: RESULT FOUND
+         ========================================== -->
+    <section class="screen" id="screen-2" aria-label="Result Found Screen">
+      <h2 class="result-heading">
+        <span>Found 1 Result ❤️</span><span class="blinking-cursor"></span>
+      </h2>
+      <div class="progress-bar-container">
+        <div class="progress-bar-fill" style="width: 100%;"></div>
+      </div>
+      <div class="counter-text">100%</div>
+      <div class="result-btn-box">
+        <button class="btn-pill" id="btn-open-result">
+          <span>Found 1 Result ❤️</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SCREEN 3: ENVELOPE & LETTERS
+         ========================================== -->
+    <section class="screen" id="screen-3" aria-label="Letter Screen">
+      <!-- Envelope View (Shown initially) -->
+      <div id="envelope-stage">
+        <div class="envelope-header">A LETTER ARRIVED</div>
+        <div class="envelope-wrapper" id="envelope-wrapper" title="Tap to open letter">
+          <div class="envelope-box">
+            <div class="envelope-flap"></div>
+            <div class="envelope-pocket"></div>
+            <div class="envelope-seal">
+              <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="envelope-hint">tap the envelope to open it</div>
+      </div>
+
+      <!-- Letter Sheet Card (Revealed after opening envelope) -->
+      <div class="letter-card-container" id="letter-card-container">
+        <div class="letter-sheet">
+          <div class="letter-script-title">for you</div>
+          <div class="letter-body-text" id="letter-text">
+            <!-- Populated dynamically via JS -->
+          </div>
+          <div class="letter-dots-nav" id="letter-nav-dots">
+            <span class="nav-dot active"></span>
+            <span class="nav-dot"></span>
+            <span class="nav-dot"></span>
+            <span class="nav-dot"></span>
+          </div>
+          <button class="btn-pill" id="btn-letter-next">Next</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SCREEN 4: ROMANTIC QUESTIONS
+         ========================================== -->
+    <section class="screen" id="screen-4" aria-label="Romantic Questions">
+
+      <!-- Step 4A: Playful Date Questions -->
+      <div class="question-card-wrapper glass-card" id="card-date-question">
+        <div class="pulse-heart-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="#ff4d6d"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        </div>
+        <h2 class="question-title" id="date-q-title">Coffee Date?</h2>
+        <div class="question-buttons-row">
+          <button class="btn-pill" id="btn-q-yes">YES</button>
+          <button class="btn-pill btn-outline" id="btn-q-second">OF COURSE</button>
+        </div>
+        <div class="letter-dots-nav" id="question-nav-dots">
+          <span class="nav-dot active"></span>
+          <span class="nav-dot"></span>
+          <span class="nav-dot"></span>
+        </div>
+      </div>
+
+      <!-- Step 4B: Music Player / Story Card -->
+      <div class="question-card-wrapper glass-card" id="card-music-story" style="display: none;">
+        <div class="vinyl-disc-container">
+          <div class="vinyl-disc">
+            <div class="vinyl-center-hole"></div>
+          </div>
+        </div>
+        <h2 class="player-title">Us ❤️</h2>
+        <div class="player-subtitle">Our Story</div>
+        <div class="equalizer-row">
+          <div class="eq-bar"></div>
+          <div class="eq-bar"></div>
+          <div class="eq-bar"></div>
+          <div class="eq-bar"></div>
+          <div class="eq-bar"></div>
+        </div>
+        <button class="btn-pill" id="btn-playing-pill" style="font-size: 0.88rem; padding: 8px 22px; margin-bottom: 8px;">
+          <span>❤️ Playing...</span>
+        </button>
+        <div class="quote-statement">
+          "Tum sirf meri favourite person nahi ho...<br>
+          <strong>Tum meri favourite feeling ho. 💗</strong>"
+        </div>
+        <button class="btn-pill" id="btn-story-continue" style="margin-top: 10px;">
+          <span>So... Ek Question Puchu? ❤️</span>
+        </button>
+      </div>
+
+      <!-- Step 4C: The Proposal Question -->
+      <div class="question-card-wrapper glass-card proposal-box" id="card-proposal-question" style="display: none;">
+        <h2 class="question-title" style="font-size: 1.6rem; margin-bottom: 12px;">
+          Kya Tum Meri Girlfriend Banogi?
+        </h2>
+        <div style="font-size: 1.8rem; margin-bottom: 16px;">💜</div>
+        <div class="dodge-container">
+          <button class="btn-pill" id="btn-proposal-yes" style="font-size: 1.1rem; padding: 14px 44px;">
+            <span>💖 YES</span>
+          </button>
+          <button class="btn-pill btn-outline" id="btn-proposal-no">
+            <span>🙈 SHAYAD NAHI</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SCREEN 5: ROMANTIC PROPOSAL CELEBRATION
+         ========================================== -->
+    <section class="screen" id="screen-5" aria-label="Celebration Screen">
+      <div class="glass-card">
+        <h2 class="yay-heading">Yayyyyyyyyy 💜</h2>
+        <div class="yay-subheading">Officially...</div>
+        <div class="yay-statement">
+          "Ab tum meri favourite notification ho.<br><br>
+          <em>I Promise...</em><br>
+          Har smile ki wajah banne ki puri koshish karunga."
+        </div>
+        <div class="ring-stage">
+          <div class="ring-band">
+            <div class="ring-diamond"></div>
+          </div>
+        </div>
+        <button class="btn-pill" id="btn-goto-countdown">
+          <span>Welcome to Our Story</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SCREEN 6: FINAL WELCOME & COUNTDOWN
+         ========================================== -->
+    <section class="screen" id="screen-6" aria-label="Final Story & Countdown">
+      <div class="glass-card" style="padding-top: 26px;">
+        <h2 class="final-welcome-title">Welcome to Our Story ❤️</h2>
+        <div class="together-label">TOGETHER SINCE</div>
+
+        <!-- 4-Card Responsive Countdown -->
+        <div class="countdown-grid">
+          <div class="timer-tile">
+            <span class="timer-number" id="time-days">0</span>
+            <span class="timer-unit">DAYS</span>
+          </div>
+          <div class="timer-tile">
+            <span class="timer-number" id="time-hours">0</span>
+            <span class="timer-unit">HOURS</span>
+          </div>
+          <div class="timer-tile">
+            <span class="timer-number" id="time-minutes">0</span>
+            <span class="timer-unit">MINUTES</span>
+          </div>
+          <div class="timer-tile seconds-tile">
+            <span class="timer-number" id="time-seconds">0</span>
+            <span class="timer-unit">SECONDS</span>
+          </div>
+        </div>
+
+        <div class="final-quote">
+          Some Love Stories Start With One Click.
+        </div>
+        <div class="pulse-heart-final">❤️</div>
+
+        <div>
+          <button class="replay-link-btn" id="btn-replay-experience">
+            ↺ Replay Experience
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Anniversary Date Configuration Modal -->
+  <div class="modal-overlay" id="date-modal">
+    <div class="modal-card">
+      <h3>Anniversary Date</h3>
+      <p>Configure the special date when your love story started:</p>
+      <input type="datetime-local" id="input-anniversary-date">
+      <div class="modal-actions">
+        <button class="btn-pill btn-outline" id="btn-modal-cancel">Cancel</button>
+        <button class="btn-pill" id="btn-modal-save">Save Date</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
